@@ -1,0 +1,8 @@
+{
+    "app":{
+        "port": 3000,
+        "ENV": "default",
+        "name": "CryptoApp",
+        "secret": ""
+    }
+}

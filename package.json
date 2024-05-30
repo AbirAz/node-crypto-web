@@ -4,7 +4,10 @@
   "description": "node.js john bryce course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "nodemon --exec ts-node src/app.ts",
+    "moshe": "ls"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/AbirAz/node-crypto-web/issues"
   },
-  "homepage": "https://github.com/AbirAz/node-crypto-web#readme"
+  "homepage": "https://github.com/AbirAz/node-crypto-web#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
 }

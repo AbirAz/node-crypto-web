@@ -4,5 +4,12 @@
         "ENV": "default",
         "name": "CryptoApp",
         "secret": ""
+    },
+    "mysql":{
+        "host": "localhost",
+        "port": 3310,
+        "user": "root",
+        "password": "",
+        "database": "cryptoapp"
     }
 }

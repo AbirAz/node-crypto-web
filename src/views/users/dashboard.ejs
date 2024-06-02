@@ -11,6 +11,7 @@
 
     <script>
         const socket = io(`ws://<%= io.host %>:<%= io.port %>`)
+        console.log('connected to socket', socket)
         /*
         {
             symbol: 'btc',
@@ -18,6 +19,7 @@
         }
         */
         socket.on('symbol value update', message => {
+            console.log('received io message', message)
             document.getElementById(message.symbol).innerHTML = `$${message.value}`;
         })
         // socket.on('hello', (message) => {
@@ -47,7 +49,7 @@
                         <%= userSymbol.symbol %>
                     </td>
                     <td id="<%= userSymbol.symbol %>">
-                        $<%= symbolValues.find(symbolValue => symbolValue.symbol? === userSymbol?.symbol)?.value %>
+                        $<%= symbolValues.find(symbolValue => symbolValue?.symbol === userSymbol?.symbol)?.value %>
                     </td>
                 </tr>
             <% }) %>

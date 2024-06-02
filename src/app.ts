@@ -9,6 +9,14 @@ import error from './middlewares/error/error';
 import githubAuth from './middlewares/github-auth';
 import session from 'express-session';
 
+declare global{
+    namespace Express {
+        interface User{
+            id: number;
+        }
+    }
+}
+
 // app config
 const app = express();
 app.set('view engine', 'ejs')
@@ -19,7 +27,9 @@ app.use(session({
     secret: 'secret',
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7
-    }
+    },
+    resave: false,
+    saveUninitialized: false
 }))
 app.use(githubAuth.initialize());
 app.use(githubAuth.session());

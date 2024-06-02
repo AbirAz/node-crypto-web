@@ -7,7 +7,7 @@ import config from "config";
 
 export async function dashboard(req: Request, res: Response, next: NextFunction){
     try{
-        const userSymbols = await getModel().getForUser(1);
+        const userSymbols = await getModel().getForUser(req.user.id);
 
         const symbolValues = await Promise.all( 
             userSymbols.map(({ symbol }) => getSymbolValueModel().getLatest(symbol))
@@ -26,7 +26,7 @@ export async function dashboard(req: Request, res: Response, next: NextFunction)
 export async function addSymbol(req: Request, res: Response, next: NextFunction){
     try{
         const userSymbol = req.body as DTO;
-        userSymbol.userId = 1;
+        userSymbol.userId = req.user.id;
         const newUserSymbol = await getModel().add(userSymbol)
         console.log(`added a new user_symbol with id ${newUserSymbol.id}`)
         res.redirect('/users/dashboard');

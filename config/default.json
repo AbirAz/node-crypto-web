@@ -33,7 +33,7 @@
     },
     "github": {
         "clientID": "Ov23livl4QGxAJOSOuQP",
-        "clientSecret": "",
+        "clientSecret": "e4b678274b8552d18acd01c236914f8dc0ec0b6b",
         "callbackURL": "http://localhost:3000/github/callback"
     }
 }

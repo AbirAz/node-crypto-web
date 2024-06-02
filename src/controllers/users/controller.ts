@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { DTO } from "../../models/user-symbol/dto";
 import getModel from "../../models/user-symbol/factory";
 import getSymbolValueModel from "../../models/symbol-value/factory";
+import config from "config";
 
 
 export async function dashboard(req: Request, res: Response, next: NextFunction){
@@ -14,7 +15,8 @@ export async function dashboard(req: Request, res: Response, next: NextFunction)
 
         res.render(`users/dashboard`,{
             userSymbols,
-            symbolValues
+            symbolValues,
+            io: config.get('app.io')
         })
     }catch(err){
         next(err);

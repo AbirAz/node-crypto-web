@@ -1,5 +1,6 @@
 import config from 'config';
 import { Server } from 'socket.io';
+import { v4 } from 'uuid';
 
 const io = new Server({
     cors: {
@@ -7,8 +8,12 @@ const io = new Server({
     }
 });
 
+const clients = [];
+
 io.on('connection', socket => {
-    console.log('new client connected...')
+   socket.on('new message from worker', message => {
+    io.emit('symbol value update', message)
+   })
 })
 
 io.listen(config.get('io.port'));

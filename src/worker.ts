@@ -5,6 +5,9 @@ import getUserSymbolModel from './models/user-symbol/factory';
 import getSymbolValueModel from './models/symbol-value/factory';
 import axios from 'axios';
 import cheerio from 'cheerio';
+import { io } from 'socket.io-client';
+
+const socket = io(`ws://${config.get('worker.io.host')}:${config.get('worker.io.port')}`)
 
 const connection = mysql.createConnection(config.get('mysql'))
 
@@ -24,6 +27,13 @@ async function scrape(symbol:string): Promise<{symbol: string, value: string}> {
         when: new Date()
 
     })
+
+    // notify io server, so it can notify all the clients
+    socket.emit('new message from worker', {
+        symbol,
+        value: scrapedString
+    })
+    
 
     return{
         symbol,

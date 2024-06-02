@@ -1,6 +1,6 @@
 import { DTO } from "./dto";
 import { Model } from "./model";
-import query from '../../db/mysql'
+import query from '../../db - connections/mysql'
 import { OkPacketParams } from "mysql2";
 
 class MySQL implements Model{

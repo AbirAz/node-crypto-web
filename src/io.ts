@@ -11,10 +11,12 @@ const io = new Server({
 const clients = [];
 
 io.on('connection', socket => {
-   socket.on('new message from worker', message => {
-    io.emit('symbol value update', message)
-   })
+    console.log('new connection')
+    socket.on('new message from worker', message => {
+        console.log('new message from worker', message)
+        io.emit('symbol value update', message)
+    })
 })
 
 io.listen(config.get('io.port'));
-console.log(`io server started on port: ${config.get('io.port')}`);
+console.log(`io server started on ${config.get('io.port')}`)

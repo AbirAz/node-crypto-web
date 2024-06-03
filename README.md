@@ -23,3 +23,7 @@ worker:
 app:
 5) docker build -t aviraz/app-6156:1.0 --file Dockerfile.app .
 6) docker run --name 6156-app -e NODE_ENV=docker -d -p 3000:3000 aviraz/app-6156:1.0
+
+
+docker compose:
+1) docker compose up -d

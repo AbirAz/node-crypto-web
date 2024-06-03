@@ -1,7 +1,6 @@
 {
-    "app":{
+    "app": {
         "port": 3000,
-        "ENV": "default",
         "name": "CryptoApp",
         "secret": "",
         "io": {
@@ -9,31 +8,31 @@
             "port": 3001
         }
     },
-    "worker":{
-        "interval": 5000,
+    "worker": {
+        "interval": 10000,
         "io": {
             "host": "localhost",
             "port": 3001
         }
     },
-    "io":{
+    "io": {
         "port": 3001
     },
-    "mysql":{
+    "mysql": {
         "host": "localhost",
         "port": 3310,
         "user": "root",
         "password": "",
         "database": "cryptoapp"
     },
-    "mongo":{
+    "mongo": {
         "host": "localhost",
         "port": 27017,
         "database": "cryptoapp"
     },
     "github": {
-        "clientID": "Ov23livl4QGxAJOSOuQP",
-        "clientSecret": "e4b678274b8552d18acd01c236914f8dc0ec0b6b",
+        "clientID": "07c52cc8f0391388de2a",
+        "clientSecret": "10eed8f67cf5e38c70d193ad06648fa552940d9a",
         "callbackURL": "http://localhost:3000/github/callback"
     }
 }

@@ -1,0 +1,17 @@
+version: '3.58'
+
+services:
+  mysql:
+    name: 6156-mysql
+    environment:
+  mongo:
+    name: 6156-mongo
+  io:
+    name: 6156-io
+  worker:
+    name: 6156-worker
+  app:
+    name: 6156-app
+
+
+volumes:
